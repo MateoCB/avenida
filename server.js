@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 require('dotenv').config({ path: './.env' })
-// const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 const DEFAULT_PORT = 3000
 
@@ -21,23 +21,19 @@ process.on('uncaughtException', (err, origin) => {
 const app = require('./src/app')
 
 // ********************( CONNECT TO REMOTE DATABASE )******************** //
-// const databaseConnection = process.env.DATABASE_CONNECTION.replace(
-// 	'<user>',
-// 	process.env.DATABASE_USER
-// )
-// 	.replace('<password>', process.env.DATABASE_PASSWORD)
-// 	.replace('<enviroment>', process.env.DATABASE_ENV)
+const databaseConnection = process.env.DATABASE_CONNECTION.replace(
+	'<user>',
+	process.env.DATABASE_USER
+).replace('<password>', process.env.DATABASE_PASSWORD)
 
-// mongoose
-// 	.connect(databaseConnection, {
-// 		useNewUrlParser: true,
-// 		useCreateIndex: true,
-// 		useFindAndModify: false,
-// 		useUnifiedTopology: true,
-// 	})
-// 	.then(() => {
-// 		console.log('Conection to database successful')
-// 	})
+mongoose
+	.connect(databaseConnection, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	})
+	.then(() => {
+		console.log('Conection to database successful')
+	})
 
 // ********************( START THE SERVER )******************** //
 const port = process.env.PORT || DEFAULT_PORT
