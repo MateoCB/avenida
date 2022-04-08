@@ -104,7 +104,7 @@ class CRUDController {
 	 */
 	getAll(onComplete) {
 		return catchAsync(async (req, res, next) => {
-			const documents = await this.repository.find()
+			const documents = await this.repository.find(req.query)
 			const modelName = this._getModelName(true)
 
 			new Jsend(res).sendSuccess(HTTP_STATUS.SUCCESS.OK, {
