@@ -6,6 +6,8 @@ const cors = require('cors')
 const OperationalError = require('./errors/classes/OperationalError')
 const globalErrorHandler = require('./errors/globalErrorHandler')
 
+const productRouter = require('./components/products/productRouter')
+
 const app = express()
 
 // ********************( EXPRESS MIDDLEWARES )******************** //
@@ -25,6 +27,7 @@ app.use(cors())
 app.options('*', cors())
 
 // ********************( HANDLE IMPLEMENTED ROUTES )******************** //
+app.use('/api/products', productRouter)
 
 // ********************( HANDLE UNKNOWN ROUTES )******************** //
 app.all('*', (req, res, next) => {
