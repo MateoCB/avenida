@@ -16,6 +16,7 @@ exports.deleteProductById = crudController.deleteOne()
 
 exports.updateProductById = crudController.updateOne()
 
+// ********************( MIDDLEWARES )******************** //
 /**
  * If the client sends a q query on the products it will cast
  * it to title LIKE q no case sensitive.

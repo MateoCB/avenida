@@ -7,6 +7,7 @@ const OperationalError = require('./errors/classes/OperationalError')
 const globalErrorHandler = require('./errors/globalErrorHandler')
 
 const productRouter = require('./components/products/productRouter')
+const cartRouter = require('./components/carts/cartRouter')
 
 const app = express()
 
@@ -28,6 +29,8 @@ app.options('*', cors())
 
 // ********************( HANDLE IMPLEMENTED ROUTES )******************** //
 app.use('/api/products', productRouter)
+
+app.use('/api/carts', cartRouter)
 
 // ********************( HANDLE UNKNOWN ROUTES )******************** //
 app.all('*', (req, res, next) => {
