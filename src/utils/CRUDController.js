@@ -43,7 +43,7 @@ class CRUDController {
 			const modelName = this._getModelName()
 
 			if (!documentUpdated) {
-				return next(new globalErrors.ResourceNotFoundError())
+				return next(new GlobalErrors.ResourceNotFoundError())
 			}
 
 			new Jsend(res).sendSuccess(HTTP_STATUS.SUCCESS.OK, {
@@ -85,7 +85,7 @@ class CRUDController {
 			const modelName = this._getModelName()
 
 			if (!document) {
-				return next(new globalErrors.ResourceNotFoundError())
+				return next(new GlobalErrors.ResourceNotFoundError())
 			}
 
 			new Jsend(res).sendSuccess(HTTP_STATUS.SUCCESS.OK, {
