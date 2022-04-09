@@ -2,7 +2,7 @@
 require('dotenv').config({ path: './.env' })
 const mongoose = require('mongoose')
 
-const DEFAULT_PORT = 3000
+const DEFAULT_PORT = 8000
 
 // ********************( GLOBAL HANDLER FOR SYNC ERRRORS )******************** //
 process.on('uncaughtException', (err, origin) => {
