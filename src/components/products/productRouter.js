@@ -8,7 +8,6 @@ const authController = require('../auth/authController')
 const router = express.Router()
 const productValidator = new ProductValidator()
 
-// ********************( GET ALL PRODUCTS )******************** //
 router
 	.route('/')
 	.post(

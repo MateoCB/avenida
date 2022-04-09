@@ -6,7 +6,6 @@ const CartValidator = require('./CartValidator')
 const router = express.Router()
 const cartValidator = new CartValidator()
 
-// ********************( GET ALL PRODUCTS )******************** //
 router
 	.route('/')
 	.post(

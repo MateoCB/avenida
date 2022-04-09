@@ -8,6 +8,7 @@ const globalErrorHandler = require('./errors/globalErrorHandler')
 
 const productRouter = require('./components/products/productRouter')
 const cartRouter = require('./components/carts/cartRouter')
+const orderRouter = require('./components/order/orderRouter')
 
 const app = express()
 
@@ -31,6 +32,8 @@ app.options('*', cors())
 app.use('/api/products', productRouter)
 
 app.use('/api/carts', cartRouter)
+
+app.use('/api/orders', orderRouter)
 
 // ********************( HANDLE UNKNOWN ROUTES )******************** //
 app.all('*', (req, res, next) => {
