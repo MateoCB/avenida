@@ -15,9 +15,14 @@ const productRepository = new ProductRepository()
 exports.createOrder = async (order) => {
 	const product = await productRepository.findById(order.productId)
 
+	// Check if there is enough stock
 	if (product.stock < order.quantity) {
 		throw new OrderErrors.NotEnoughStockError()
 	}
+
+	// Update the product
+	product.stock -= order.quantity
+	await productRepository.update(product._id, product)
 
 	return order
 }
